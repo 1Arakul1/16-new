@@ -1,14 +1,16 @@
 from django.db import models
 from django.contrib.auth.models import AbstractUser
 
+
 class User(AbstractUser):
     # Дополнительные поля
     phone_number = models.CharField(max_length=20, blank=True, null=True)
     is_premium = models.BooleanField(default=False)
-    # Новое поле:
+    # Новые поля:
     address = models.CharField(max_length=255, blank=True, null=True)
+    birth_date = models.DateField(blank=True, null=True)
+    city = models.CharField(max_length=100, blank=True, null=True)
 
-    # Добавьте related_name для полей groups и user_permissions
     groups = models.ManyToManyField(
         'auth.Group',
         verbose_name='groups',
@@ -26,6 +28,14 @@ class User(AbstractUser):
         related_query_name="user",
     )
 
-
     def __str__(self):
         return self.username
+
+
+class Product(models.Model):
+    name = models.CharField(max_length=200)
+    description = models.TextField(blank=True)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
+
+    def __str__(self):
+        return self.name

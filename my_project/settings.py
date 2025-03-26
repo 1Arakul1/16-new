@@ -81,19 +81,12 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': os.getenv('DJANGO_DATABASE_NAME', ''),
-        'USER': os.getenv('DJANGO_DATABASE_USER', ''),
-        'PASSWORD': os.getenv('DJANGO_DATABASE_PASSWORD', ''),
-        'HOST': os.getenv('DJANGO_DATABASE_HOST', ''),
-        'PORT': os.getenv('DJANGO_DATABASE_PORT', ''),
-        'OPTIONS': {
-            'driver': os.getenv('DJANGO_DATABASE_OPTIONS_DRIVER', 'ODBC Driver 17 for SQL Server'),
-            'TrustServerCertificate': os.getenv('DJANGO_DATABASE_OPTIONS_TRUST_SERVER_CERTIFICATE', 'yes'),
-            'Encrypt': os.getenv('DJANGO_DATABASE_OPTIONS_ENCRYPT', 'optional'),
-        },
+        'NAME': '',
+        'USER': '',
+        'PASSWORD': '',
+        'HOST': '',
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators
