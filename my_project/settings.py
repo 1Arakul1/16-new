@@ -81,10 +81,16 @@ WSGI_APPLICATION = 'my_project.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'mssql',
-        'NAME': '',
-        'USER': '',
-        'PASSWORD': '',
-        'HOST': '',
+        'NAME': 'lami',  # Изменено имя базы данных
+        'USER': os.getenv('DJANGO_DATABASE_USER'),
+        'PASSWORD': os.getenv('DJANGO_DATABASE_PASSWORD'),
+        'HOST': os.getenv('DJANGO_DATABASE_HOST'),
+        'PORT': os.getenv('DJANGO_DATABASE_PORT', ''),  # Добавляем PORT
+        'OPTIONS': {
+            'driver': os.getenv('DJANGO_DATABASE_OPTIONS_DRIVER', 'ODBC Driver 17 for SQL Server'),
+            'TrustServerCertificate': 'yes',
+            'Encrypt': 'optional',
+        },
     }
 }
 
