@@ -7,7 +7,8 @@ from dotenv import load_dotenv
 def create_database():
     """Попытка создать базу данных MS SQL Server."""
     load_dotenv()
-    db_name = "lami"  # Имя базы данных, которую мы хотим создать
+
+    db_name = "lamy"  # Имя базы данных, которую мы хотим создать
     db_user = os.getenv("DJANGO_DATABASE_USER")
     db_password = os.getenv("DJANGO_DATABASE_PASSWORD")
     db_host = os.getenv("DJANGO_DATABASE_HOST")
